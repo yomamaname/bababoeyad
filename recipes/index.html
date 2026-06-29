@@ -1,0 +1,23 @@
+---
+layout: default
+title: Potato Recipe Blog
+description: Potato recipes including sous vide potatoes, gratin, fries, and gnocchi.
+---
+<section class="page-hero">
+  <p class="eyebrow">Potato recipe blog</p>
+  <h1>Recipes for crisp edges, creamy centers, and cozy tables.</h1>
+  <p>Browse practical potato dishes, from sous vide butter potatoes to gratin and gnocchi.</p>
+</section>
+<section class="recipe-grid blog-list">
+  {% for post in site.posts %}
+    <article class="recipe-card">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt }}">
+      <div>
+        <p class="eyebrow">{{ post.course }}</p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.description }}</p>
+        <span>{{ post.time }} · {{ post.servings }} · {{ post.potato }}</span>
+      </div>
+    </article>
+  {% endfor %}
+</section>
