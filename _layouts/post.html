@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="recipe-post">
+  <a class="back-link" href="{{ '/recipes/' | relative_url }}">← Back to all potato recipes</a>
+  <p class="eyebrow">{{ page.course | default: 'Potato Recipe' }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="post-description">{{ page.description }}</p>
+  <div class="recipe-meta" aria-label="Recipe quick facts">
+    <span>⏱ {{ page.time }}</span>
+    <span>🍽 {{ page.servings }}</span>
+    <span>🥔 {{ page.potato }}</span>
+  </div>
+  {% if page.image %}
+    <img class="post-hero-photo" src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}" />
+  {% endif %}
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>

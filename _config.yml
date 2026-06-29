@@ -1,0 +1,17 @@
+title: Potato Reverie
+description: A Jekyll-powered celebration of potato beauty, recipes, and delicacies.
+url: ""
+baseurl: ""
+permalink: /recipes/:title/
+markdown: kramdown
+plugins: []
+collections:
+  posts:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      category: recipe

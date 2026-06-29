@@ -1,0 +1,125 @@
+---
+layout: default
+title: Home
+description: A Jekyll-powered potato showcase with galleries, recipes, and GitHub Pages hosting instructions.
+---
+<section class="hero" id="top">
+  <div class="hero-content">
+    <p class="eyebrow">A Jekyll ode to earth's golden treasure</p>
+    <h1>The humble potato, dressed in sunlight, steam, and spice.</h1>
+    <p class="hero-copy">
+      From velvet mash to crisp-edged rösti, potatoes carry comfort across continents.
+      Explore their quiet beauty, photo-inspired gallery, and an expanding recipe blog.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ '/recipes/' | relative_url }}">Read recipes</a>
+      <a class="button ghost" href="#gallery">See potato photos</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro" aria-labelledby="intro-heading">
+  <div>
+    <p class="eyebrow">Why potatoes enchant</p>
+    <h2 id="intro-heading">Rustic skins, creamy hearts, endless possibility.</h2>
+  </div>
+  <p>
+    Each variety brings its own charm: waxy fingerlings shine in herb butter, russets bake into
+    cloud-soft interiors, and purple potatoes add jewel tones to the table. Simple ingredients,
+    transformed with heat and imagination, become unforgettable.
+  </p>
+</section>
+
+<section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Potato photo wall</p>
+    <h2 id="gallery-heading">Harvest light, crispy edges, creamy layers</h2>
+  </div>
+  <div class="photo-grid">
+    <figure><img src="{{ '/assets/img/potato-harvest.svg' | relative_url }}" alt="Sunlit potatoes resting on rich soil"><figcaption>Freshly lifted potatoes glowing in harvest light.</figcaption></figure>
+    <figure><img src="{{ '/assets/img/crispy-fries.svg' | relative_url }}" alt="A dramatic pile of golden fries"><figcaption>Golden fries with crisp ridges and a soft center.</figcaption></figure>
+    <figure><img src="{{ '/assets/img/gratin-table.svg' | relative_url }}" alt="A bubbling potato gratin on a rustic table"><figcaption>Layered gratin browned beautifully for the table.</figcaption></figure>
+    <figure><img src="{{ '/assets/img/gnocchi-sage.svg' | relative_url }}" alt="Potato gnocchi with sage and browned butter"><figcaption>Cloud gnocchi tossed with sage and browned butter.</figcaption></figure>
+  </div>
+</section>
+
+<section class="delicacies" id="delicacies" aria-labelledby="delicacies-heading">
+  <div class="section-heading centered">
+    <p class="eyebrow">Delicacies made from potatoes</p>
+    <h2 id="delicacies-heading">Crisp, creamy, tender, and celebratory</h2>
+  </div>
+  <div class="dish-layout">
+    <article class="dish-card featured">
+      <div class="dish-art fries" aria-hidden="true"></div>
+      <div>
+        <h3>Pommes Frites</h3>
+        <p>Twice-cooked until shattering at the edges and pillowy inside, best with aioli.</p>
+      </div>
+    </article>
+    <article class="dish-card">
+      <div class="dish-art mash" aria-hidden="true"></div>
+      <div>
+        <h3>Silken Mash</h3>
+        <p>Whipped with butter and warm cream for a dish that feels like a blanket.</p>
+      </div>
+    </article>
+    <article class="dish-card">
+      <div class="dish-art gratin" aria-hidden="true"></div>
+      <div>
+        <h3>Potato Gratin</h3>
+        <p>Thin layers baked with garlic, cream, and a bronzed, bubbling top.</p>
+      </div>
+    </article>
+    <article class="dish-card">
+      <div class="dish-art sous-vide" aria-hidden="true"></div>
+      <div>
+        <h3>Sous Vide Potatoes</h3>
+        <p>Vacuum-cooked with butter and herbs until evenly tender, then seared to finish.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="recipe-teasers" aria-labelledby="latest-recipes-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Latest from the recipe blog</p>
+    <h2 id="latest-recipes-heading">More ways to worship the spud</h2>
+  </div>
+  <div class="recipe-grid">
+    {% for post in site.posts limit:3 %}
+      <article class="recipe-card">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt }}">
+        <div>
+          <p class="eyebrow">{{ post.course }}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.description }}</p>
+          <span>{{ post.time }} · {{ post.servings }}</span>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="pairings" id="pairings" aria-labelledby="pairings-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Flavor companions</p>
+    <h2 id="pairings-heading">Build your perfect potato moment</h2>
+  </div>
+  <div class="pairing-board">
+    <button class="pairing active" data-note="Rosemary, flaky salt, and olive oil make roasted potatoes fragrant and crisp.">Rosemary & Salt</button>
+    <button class="pairing" data-note="Sour cream, chives, and black pepper turn a baked potato into a classic comfort ritual.">Chive Cream</button>
+    <button class="pairing" data-note="Smoked paprika and garlic bring warmth to wedges, fries, and breakfast potatoes.">Paprika Spark</button>
+    <button class="pairing" data-note="Truffle, parmesan, and parsley make potatoes feel restaurant-level decadent.">Truffle Parmesan</button>
+  </div>
+  <p class="pairing-note" aria-live="polite">Rosemary, flaky salt, and olive oil make roasted potatoes fragrant and crisp.</p>
+</section>
+
+<section class="hosting" id="deploy" aria-labelledby="hosting-heading">
+  <div>
+    <p class="eyebrow">Free hosting path</p>
+    <h2 id="hosting-heading">Ready for GitHub Pages</h2>
+  </div>
+  <p>
+    This site is now a Jekyll project with a GitHub Actions workflow that builds the static site and publishes it to GitHub Pages. Push to <code>main</code>, enable Pages with “GitHub Actions” as the source, and the potato garden can be hosted for small audiences at no server cost.
+  </p>
+</section>
